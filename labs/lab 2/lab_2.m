@@ -10,7 +10,7 @@ ser = serialport("COM26",9600) % specify COM port
 %% 3. interface with Pico over serial
 
 % Desired motor voltage of step input
-volts = linspace(0,6,101); 
+volts = 2.34 * ones(1,30); %v 50
 % Voltage inputs to run: 2.5, 5.0, 0:0.06:6;
 
 % Define what information is being sent to the pico
@@ -56,17 +56,17 @@ end
 
 
 %% save un processd data then Process data: Remove NaNs
-save('lab2_single_voltage_0-6.mat','TIME',"SPEED","POSITION","VOLT",'volts')
+save('lab3_single_v_50rads_30x.mat','TIME',"SPEED","POSITION","VOLT",'volts')
 TIME = cleanData(TIME);
 POSITION = cleanData(POSITION);
 SPEED = cleanData(SPEED);
 VOLT = cleanData(VOLT);
 %% Save processed data
-save('lab2_part_3_0-6.mat','TIME',"SPEED","POSITION","VOLT",'volts')
+save('lab3_part_3_v_50rads_30x.mat','TIME',"SPEED","POSITION","VOLT",'volts')
 %% Plotting AND COMPUTING STEADY STATE VALUE
 % steady state 
-steady_state_2_5 = comp_ss_value(SPEED(:,1),100);
-steady_state_5 = comp_ss_value(SPEED(:,2),100);
+steady_state_2_34 = comp_ss_value(SPEED(:,1),100);
+%steady_state_5 = comp_ss_value(SPEED(:,2),100);
 figure(); % open figure
 plot(TIME,SPEED) % velocity vs time
 hold on % to continue working on same figure
