@@ -65,7 +65,7 @@ VOLT = cleanData(VOLT);
 save('lab3_part_3_v_50rads_30x.mat','TIME',"SPEED","POSITION","VOLT",'volts')
 %% Plotting AND COMPUTING STEADY STATE VALUE
 % steady state 
-steady_state_2_34 = comp_ss_value(SPEED(:,1),100);
+steady_state_2_34 = comp_ss_value(SPEED,100);
 %steady_state_5 = comp_ss_value(SPEED(:,2),100);
 figure(); % open figure
 plot(TIME,SPEED) % velocity vs time
@@ -73,8 +73,12 @@ hold on % to continue working on same figure
 xlabel('time (s)') % xlabel
 ylabel('speed x(t)') % ylabel
 % make horizontal line with staedy state
-yline(steady_state_2_5)
-yline(steady_state_5)
+%yline(steady_state_2_5)
+%yline(steady_state_5)
 %legend('velocity vs time at 2.5V','velocity vs time at 5V') % legends
 title('velocity vs time for 0-6V in 101 steps') % title
 hold off % done
+
+
+
+
