@@ -80,3 +80,37 @@ title('DDV Open-Loop Trajectory')
 legend('Actual trajectory','Waypoints')
 grid on
 axis equal
+%% DDV Visualization
+
+x = simu.X.Data;
+y = simu.Y.Data;
+hdg = simu.hdg.Data;
+
+figure()
+
+for i = 1:length(x)
+
+    plot(w(:,1),w(:,2),'ko--')
+    hold on
+
+    plot(x(1:i),y(1:i),'b-')
+
+    plot(x(i),y(i),'ro','MarkerFaceColor','r')
+
+    quiver(x(i),y(i),cos(hdg(i)),sin(hdg(i)), ...
+        2,'r','LineWidth',2)
+
+    xlabel('World X-axis (m)')
+    ylabel('World Y-axis (m)')
+    title('DDV Open-Loop Navigation')
+
+    legend('Waypoints','DDV Path','DDV','Heading')
+
+    axis equal
+    axis([-5 25 -5 25])
+    grid on
+
+    drawnow
+    hold off
+
+end
