@@ -114,3 +114,12 @@ for i = 1:length(x)
     hold off
 
 end
+%% DDV Trajectory
+figure()
+plot(simu.X.Data, simu.Y.Data)
+hold on
+plot(w(:,1), w(:,2), 'ko')
+xlabel('World X-axis (m)')
+ylabel('World Y-axis (m)')
+title('DDV Open-Loop Trajectory')
+legend('Actual trajectory', 'Waypoints')
